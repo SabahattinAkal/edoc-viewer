@@ -2,11 +2,11 @@
 
 # eDoc Viewer
 
-**XML tabanlı e-Belgeleri XSLT şablonlarıyla görüntülemek ve PDF olarak kaydetmek için geliştirilmiş React uygulaması.**
+**XML tabanlı e-Belgeleri XSLT şablonlarıyla tarayıcı üzerinde görüntülemek ve PDF olarak kaydetmek için geliştirilmiş React uygulaması.**
 
-![React](https://img.shields.io/badge/React-16.13.1-61DAFB?logo=react\&logoColor=white)
-![Material UI](https://img.shields.io/badge/Material--UI-4.x-0081CB?logo=mui\&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Web-4285F4?logo=googlechrome\&logoColor=white)
+![React](https://img.shields.io/badge/React-16.13.1-61DAFB?logo=react&logoColor=white)
+![Material UI](https://img.shields.io/badge/Material--UI-4.x-0081CB?logo=mui&logoColor=white)
+![License](https://img.shields.io/badge/Lisans-MIT-green)
 ![Processing](https://img.shields.io/badge/İşleme-Tarayıcıda-success)
 
 </div>
@@ -15,40 +15,41 @@
 
 ## Proje Hakkında
 
-**eDoc Viewer**, XML formatındaki elektronik belgeleri XSLT şablonlarıyla işleyerek tarayıcı üzerinde okunabilir bir belge görünümüne dönüştürür.
+**eDoc Viewer**, XML formatındaki elektronik belgeleri XSLT şablonlarıyla işleyerek tarayıcı içerisinde okunabilir bir belge görünümüne dönüştürür.
 
-Uygulama özellikle e-Fatura gibi UBL-TR tabanlı XML belgelerin görüntülenmesi amacıyla geliştirilmiştir. Kullanıcı bir XML dosyası seçebilir, gerektiğinde harici bir XSLT dosyası yükleyebilir ve oluşturulan belgeyi PDF olarak kaydedebilir.
+Uygulama özellikle UBL-TR tabanlı e-Fatura ve benzeri elektronik belgelerin görüntülenmesi amacıyla kullanılabilir. Kullanıcı bir XML dosyası seçebilir, gerektiğinde harici bir XSLT dosyası yükleyebilir ve oluşturulan belgeyi tarayıcının yazdırma ekranı üzerinden PDF olarak kaydedebilir.
 
-XSLT dosyası ayrıca seçilmemişse uygulama, XML belgesi içerisindeki `cbc:EmbeddedDocumentBinaryObject` alanında Base64 olarak gömülü olan XSLT şablonunu kullanmayı dener.
+Harici bir XSLT dosyası seçilmediğinde uygulama, XML içerisindeki `cbc:EmbeddedDocumentBinaryObject` alanında Base64 olarak gömülü bulunan XSLT şablonunu kullanmayı dener.
 
-> Seçilen XML ve XSLT dosyaları herhangi bir sunucuya gönderilmez. Tüm işlemler kullanıcının tarayıcısında gerçekleştirilir.
+> Seçilen XML ve XSLT dosyaları uygulama tarafından bir sunucuya yüklenmez. Dönüştürme işlemi tarayıcı içerisinde gerçekleştirilir. Bununla birlikte, kullanılan XSLT şablonu harici görsel, font veya başka kaynaklar içeriyorsa tarayıcı bu kaynaklara ağ isteği gönderebilir.
 
 ---
 
 ## Özellikler
 
-* XML e-Belge dosyası seçme
-* Harici XSLT şablonu seçme
-* XML içerisindeki gömülü XSLT şablonunu otomatik algılama
-* Base64 olarak gömülü XSLT içeriğini UTF-8 formatına dönüştürme
-* XML ve XSLT dosyalarını tarayıcıda HTML çıktısına dönüştürme
-* Oluşturulan belgeyi sayfa içerisinde önizleme
-* Tarayıcının yazdırma ekranı üzerinden PDF olarak kaydetme
-* Açık ve koyu tema desteği
-* Sunucu ve veritabanı gerektirmeyen istemci taraflı çalışma
+- Yerel XML e-Belge dosyası seçme
+- İsteğe bağlı harici XSLT şablonu seçme
+- XML içerisindeki gömülü XSLT şablonunu otomatik kullanma
+- Base64 olarak gömülü XSLT içeriğini UTF-8 olarak çözümleme
+- XML ve XSLT içeriğini tarayıcıda HTML çıktısına dönüştürme
+- Oluşturulan belgeyi sayfa içerisinde önizleme
+- Tarayıcının yazdırma ekranı üzerinden PDF olarak kaydetme
+- Açık ve koyu tema desteği
+- Sunucu ve veritabanı gerektirmeyen istemci taraflı çalışma
+- Temel hata yakalama ve kullanıcı uyarıları
 
 ---
 
 ## Kullanım
 
 1. **XML Dosyasını Seç** alanından görüntülemek istediğiniz XML belgesini seçin.
-2. XML dosyasının içerisinde gömülü XSLT bulunmuyorsa **XSLT Dosyasını Seç** alanından uygun şablonu seçin.
+2. XML dosyasında gömülü XSLT bulunmuyorsa **XSLT Dosyasını Seç** alanından uygun şablonu seçin.
 3. **Faturayı Göster** butonuna tıklayın.
 4. Dönüştürülen belge sayfanın alt bölümünde görüntülenecektir.
-5. Belgeyi kaydetmek için **PDF Kaydet** butonuna tıklayın.
+5. **PDF Kaydet** butonuna tıklayın.
 6. Açılan yazdırma ekranında hedef olarak **PDF olarak kaydet** seçeneğini kullanın.
 
-PDF penceresi açılmıyorsa tarayıcınızın açılır pencere engelleyicisini kontrol edin.
+> PDF penceresi açılmıyorsa tarayıcınızın bu site için açılır pencere iznini kontrol edin.
 
 ---
 
@@ -63,8 +64,8 @@ Harici XSLT seçilmiş mi?
   Evet      Hayır
    │          │
    │          ▼
-   │   XML içindeki gömülü
-   │   XSLT şablonu aranır
+   │   XML içerisindeki
+   │   gömülü XSLT aranır
    │          │
    └────┬─────┘
         ▼
@@ -77,32 +78,34 @@ HTML belge önizlemesi
 Yazdır / PDF olarak kaydet
 ```
 
-Dönüşüm işlemi tarayıcının yerleşik aşağıdaki API'leri kullanılarak gerçekleştirilir:
+Dönüşüm sırasında ağırlıklı olarak aşağıdaki tarayıcı API'leri kullanılır:
 
-* `FileReader`
-* `DOMParser`
-* `XSLTProcessor`
-* `TextDecoder`
+- `FileReader`
+- `DOMParser`
+- `XSLTProcessor`
+- `TextDecoder`
+- `window.print()`
 
 ---
 
 ## Kullanılan Teknolojiler
 
-| Teknoloji        | Açıklama                                 |
-| ---------------- | ---------------------------------------- |
-| React 16.13.1    | Kullanıcı arayüzü ve uygulama akışı      |
-| Create React App | Proje yapılandırması ve build süreci     |
-| Material UI 4    | Arayüz bileşenleri ve tema desteği       |
-| FileReader API   | Yerel XML ve XSLT dosyalarını okuma      |
-| DOMParser        | XML metnini belge nesnesine dönüştürme   |
-| XSLTProcessor    | XML belgesini XSLT ile HTML'e dönüştürme |
-| GitHub Pages     | Statik uygulama yayını                   |
+| Teknoloji | Kullanım amacı |
+| --- | --- |
+| React 16.13.1 | Kullanıcı arayüzü ve uygulama akışı |
+| Create React App | Proje yapılandırması ve build süreci |
+| Material-UI 4 | Arayüz bileşenleri ve tema desteği |
+| FileReader API | Yerel XML ve XSLT dosyalarını okuma |
+| DOMParser | XML metnini belge nesnesine dönüştürme |
+| XSLTProcessor | XML belgesini XSLT ile HTML'e dönüştürme |
+| TextDecoder | Base64 içeriğinden elde edilen veriyi UTF-8 çözümleme |
+| Browser Print API | Oluşturulan belgeyi yazdırma veya PDF olarak kaydetme |
 
 ---
 
 ## Kurulum
 
-Projeyi klonlayın:
+Repoyu klonlayın:
 
 ```bash
 git clone https://github.com/SabahattinAkal/edoc-viewer.git
@@ -112,88 +115,66 @@ cd edoc-viewer
 Bağımlılıkları yükleyin:
 
 ```bash
+npm install
+```
+
+veya:
+
+```bash
 yarn install
 ```
 
-npm kullanıyorsanız:
+Geliştirme sunucusunu başlatın:
 
 ```bash
-npm install
+npm start
+```
+
+veya:
+
+```bash
+yarn start
+```
+
+Uygulama varsayılan olarak aşağıdaki adreste açılır:
+
+```text
+http://localhost:3000
 ```
 
 ---
 
 ## Kullanılabilir Komutlar
 
-Proje dizininde aşağıdaki komutları çalıştırabilirsiniz.
-
-### `yarn start`
-
-Uygulamayı geliştirme modunda çalıştırır.
-
-Tarayıcınızda aşağıdaki adresi açın:
-
-```text
-http://localhost:3000
-```
-
-Kaynak kod üzerinde değişiklik yaptığınızda sayfa otomatik olarak yenilenir. ESLint tarafından tespit edilen hatalar terminalde veya tarayıcı konsolunda görüntülenebilir.
-
-npm kullanıyorsanız:
+### Geliştirme ortamı
 
 ```bash
 npm start
 ```
 
----
-
-### `yarn test`
-
-Test çalıştırıcısını etkileşimli izleme modunda başlatır.
-
-```bash
-yarn test
-```
-
-npm karşılığı:
+### Testler
 
 ```bash
 npm test
 ```
 
-> Projede henüz kapsamlı otomatik testler bulunmayabilir.
+> Projede şu anda yalnızca temel Create React App test yapısı bulunmaktadır.
 
----
-
-### `yarn build`
-
-Uygulamanın production sürümünü oluşturur.
-
-```bash
-yarn build
-```
-
-npm karşılığı:
+### Production build
 
 ```bash
 npm run build
 ```
 
-Optimize edilmiş production dosyaları `build` klasörüne yazılır. JavaScript ve CSS dosyaları küçültülür ve dosya adlarına içerik hash değerleri eklenir.
+Optimize edilmiş dosyalar `build` klasörüne oluşturulur.
 
----
-
-### `yarn deploy`
-
-Projeyi GitHub Pages üzerinde yayınlamak için kullanılır.
+### GitHub Pages dağıtımı
 
 ```bash
 yarn deploy
 ```
 
-Bu komut önce production build oluşturur, ardından `build` klasörünü `gh-pages` branch'ine gönderir.
-
-Yayınlama öncesinde `package.json` dosyasına aşağıdaki alanın eklenmesi gerekir:
+Dağıtımdan önce `package.json` içerisinde uygun `homepage` alanının tanımlandığından emin olun:
 
 ```json
 {
@@ -203,84 +184,85 @@ Yayınlama öncesinde `package.json` dosyasına aşağıdaki alanın eklenmesi g
 
 ---
 
-### `yarn eject`
-
-```bash
-yarn eject
-```
-
-> **Dikkat:** Bu işlem geri alınamaz.
-
-`eject` komutu Create React App tarafından yönetilen Webpack, Babel ve ESLint yapılandırmalarını proje içerisine çıkarır. Bu işlemden sonra yapılandırmanın yönetimi tamamen geliştiriciye geçer.
-
-Çoğu geliştirme senaryosunda `eject` komutunun kullanılmasına gerek yoktur.
-
----
-
 ## Proje Yapısı
 
 ```text
 edoc-viewer/
 ├── public/
-│   └── index.html
+│   ├── index.html
+│   └── manifest.json
 ├── src/
 │   ├── Components/
 │   │   └── Main.jsx
 │   ├── App.css
 │   ├── App.js
+│   ├── index.css
 │   └── index.js
 ├── package.json
+├── package-lock.json
 ├── yarn.lock
+├── LICENSE
 └── README.md
 ```
 
 ### Önemli Dosyalar
 
-* `src/App.js`
-  Açık ve koyu tema yönetimini gerçekleştirir ve ana uygulama bileşenini yükler.
+- `src/App.js`  
+  Material-UI tema yapısını, açık/koyu tema geçişini ve ana uygulama bileşenini içerir.
 
-* `src/Components/Main.jsx`
-  XML/XSLT dosya seçimi, gömülü XSLT çözümleme, belge dönüşümü, önizleme ve PDF işlemlerini içerir.
+- `src/Components/Main.jsx`  
+  XML/XSLT dosya seçimi, gömülü XSLT çözümleme, belge dönüşümü, önizleme ve tarayıcı tabanlı PDF akışını içerir.
 
-* `package.json`
-  Proje bağımlılıklarını ve `start`, `test`, `build`, `deploy` gibi komutları içerir.
+- `package.json`  
+  Proje bağımlılıklarını ve çalıştırma komutlarını tanımlar.
 
 ---
 
-## Gizlilik
+## Gizlilik ve Güvenlik
 
-Uygulama tamamen istemci tarafında çalışır.
+Uygulama seçilen belgeleri kendi başına bir API'ye veya veritabanına göndermez.
 
-* XML dosyaları bir API'ye gönderilmez.
-* XSLT dosyaları bir sunucuya yüklenmez.
-* Belge dönüşümü tarayıcı içerisinde yapılır.
-* Uygulama belge içeriğini veritabanına kaydetmez.
-
-Hassas belgeleri görüntülerken uygulamayı güvenilir bir ortamda çalıştırmanız önerilir.
+- XML ve XSLT dosyaları yerel olarak okunur.
+- Dönüştürme işlemi tarayıcı içerisinde yapılır.
+- Belge içeriği uygulama tarafından kalıcı olarak saklanmaz.
+- Hassas e-Belgeler yalnızca güvenilir cihaz ve tarayıcılarda açılmalıdır.
+- XSLT içerisinde tanımlanan harici kaynaklar ayrıca ağ üzerinden yüklenebilir.
+- Kaynağı bilinmeyen XML veya XSLT dosyaları kullanılmamalıdır.
 
 ---
 
 ## Bilinen Sınırlamalar
 
-* XSLT desteği tarayıcıya göre farklılık gösterebilir.
-* XML içerisindeki gömülü şablon standart dışı bir alanda bulunuyorsa otomatik olarak tespit edilemeyebilir.
-* Bazı XSLT şablonları harici görsel, font veya dosyalara ihtiyaç duyabilir.
-* PDF çıktısı tarayıcının yazdırma motoruna bağlıdır.
-* Çok büyük XML belgeleri tarayıcı performansını etkileyebilir.
-* Uygulama şu anda XML şema doğrulaması yapmamaktadır.
+- `XSLTProcessor` desteği ve davranışı tarayıcıya göre değişebilir.
+- Gömülü XSLT farklı bir XML namespace ön ekiyle tanımlanmışsa otomatik algılama başarısız olabilir.
+- Bazı XSLT şablonları harici görsellere, fontlara veya dosyalara ihtiyaç duyabilir.
+- PDF çıktısının görünümü tarayıcının yazdırma motoruna bağlıdır.
+- Büyük XML dosyaları tarayıcı performansını etkileyebilir.
+- Uygulama XML şema veya imza doğrulaması yapmaz.
+- Bu araç, belgenin mali veya hukuki geçerliliğini kontrol etmez.
 
 ---
 
-## Geliştirme Önerileri
+## Proje Geçmişi ve Atıf
 
-* Sürükle-bırak dosya yükleme
-* Birden fazla XML dosyasını toplu görüntüleme
-* e-Fatura, e-Arşiv ve e-İrsaliye türlerini otomatik algılama
-* Daha detaylı XML ve XSLT hata mesajları
-* Mobil uyumlu fatura önizleme
-* PDF dosya adında fatura numarası kullanma
-* React ve Material UI sürümlerini güncelleme
-* Otomatik testler ekleme
+Bu proje, **Hakan Uçar** tarafından geliştirilen
+[OnlineEDocumentShow](https://github.com/HakanUcaar/OnlineEDocumentShow)
+projesi temel alınarak hazırlanmıştır.
+
+Orijinal proje MIT Lisansı altında yayımlanmıştır:
+
+```text
+Copyright (c) 2020 Hakan Uçar
+```
+
+Bu repoda yapılan başlıca uyarlamalar arasında Electron'a bağlı PDF oluşturma akışının tarayıcı yazdırma ekranına taşınması, Base64/UTF-8 çözümleme iyileştirmeleri ve hata yönetimi düzenlemeleri bulunmaktadır.
+
+### Katkı ve bakım
+
+- **Orijinal proje ve temel uygulama:** Hakan Uçar
+- **Web uyarlaması, düzenlemeler ve depo bakımı:** Sabahattin Akal
+
+Bu atıf, orijinal geliştiricinin telif hakkını ve katkısını korumak amacıyla README ve `LICENSE` dosyasında muhafaza edilmelidir.
 
 ---
 
@@ -305,28 +287,28 @@ git commit -m "feat: yeni özellik eklendi"
 git push origin feature/yeni-ozellik
 ```
 
-5. Pull Request oluşturun.
+5. Bir Pull Request oluşturun.
 
-Hata bildirirken kullandığınız örnek XML dosyasındaki kişisel, ticari ve mali bilgileri temizlemeyi unutmayın.
+Hata bildirirken örnek XML belgelerindeki kişisel, ticari, mali ve hukuki bilgileri temizlemeyi unutmayın.
 
 ---
 
 ## Lisans
 
-Bu proje için henüz açık kaynak lisansı belirtilmemiştir.
+Bu proje, orijinal **OnlineEDocumentShow** projesinin MIT Lisansı şartlarına uygun olarak MIT Lisansı altında dağıtılmaktadır.
 
-Projeyi kullanmak, değiştirmek veya dağıtmak için depo sahibinden izin alınması gerekebilir.
+Ayrıntılar için [`LICENSE`](./LICENSE) dosyasını inceleyin.
+
+MIT Lisansı; yazılımın kullanılmasına, kopyalanmasına, değiştirilmesine, birleştirilmesine, yayımlanmasına ve dağıtılmasına izin verir. Orijinal telif hakkı ve lisans bildiriminin yazılımın tüm kopyalarında veya önemli bölümlerinde korunması gerekir.
 
 ---
 
-## Geliştirici
-
 <div align="center">
+
+### Bakım ve web uyarlaması
 
 **Sabahattin Akal**
 
 [![GitHub](https://img.shields.io/badge/GitHub-SabahattinAkal-181717?logo=github)](https://github.com/SabahattinAkal)
-
-Bu projeyi faydalı bulduysanız yıldız bırakabilirsiniz. ⭐
 
 </div>
