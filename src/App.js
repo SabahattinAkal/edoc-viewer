@@ -6,7 +6,7 @@ class App extends Component {
   state = { darkMode: false };
 
   componentDidMount() {
-    document.title = 'dievplc e-Belge Görüntüleyici';
+    document.title = 'Xml-Lab · dievplc.com';
   }
 
   render() {

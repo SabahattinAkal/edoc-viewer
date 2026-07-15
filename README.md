@@ -1,4 +1,4 @@
-# dievplc e-Belge Görüntüleyici
+# Xml-Lab
 
 XML tabanlı e-Fatura, e-İrsaliye ve e-Arşiv belgelerini tarayıcı üzerinde XSLT ile dönüştürür; belgeyi önizlemenizi ve PDF olarak yazdırmanızı sağlar.
 
@@ -30,6 +30,6 @@ npm run build
 
 ## Sahiplik ve lisans
 
-Bu uygulamanın marka ve proje yönetimi dievplc.com kapsamındadır. Arayüz ve uygulama akışı Sabahattin Akal tarafından geliştirilmiştir.
+Xml-Lab, dievplc.com kapsamındaki bir projedir. Arayüz ve uygulama akışı Sabahattin Akal tarafından geliştirilmiştir.
 
 Projede kullanılan açık kaynak bileşenlerin ve önceki sürümlere ait telif/lisans bildirimlerinin korunması gerekir; mevcut MIT lisansı için [LICENSE](LICENSE) dosyasına bakın.
