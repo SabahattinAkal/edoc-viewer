@@ -4,7 +4,7 @@
 * { box-sizing:border-box; }
 body { margin:0; background:var(--canvas); color:var(--ink); font-family:'DM Sans', Arial, sans-serif; }
 button,input,label { font:inherit; } button { cursor:pointer; }
-.app { min-height:100vh; background:radial-gradient(circle at 86% 4%, var(--glow) 0, transparent 22rem), var(--canvas); transition:background .25s ease, color .25s ease; }
+.app { min-height:100vh; color:var(--ink); background:radial-gradient(circle at 86% 4%, var(--glow) 0, transparent 22rem), var(--canvas); transition:background .25s ease, color .25s ease; }
 .app--dark { color-scheme:dark; --ink:#edf3ed; --muted:#aeb8b0; --canvas:#101a17; --card:#1b2925; --line:#344640; --accent:#83d1b5; --accent-soft:#243c35; --warm:#293b35; --glow:#223a33; --drop-border:#537a6c; --drop-fill:rgba(48,82,70,.42); --document:#f6f8f7; --error-bg:#4c2530; --error-ink:#ffb8c2; --shadow:0 22px 55px rgba(0,0,0,.34); }
 .shell { width:min(1120px, calc(100% - 40px)); margin:auto; padding-bottom:28px; }
 .topbar { height:88px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
