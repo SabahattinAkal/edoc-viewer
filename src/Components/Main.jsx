@@ -126,7 +126,7 @@ class Main extends Component {
         <div className="section-heading"><div><span className="step">02</span><h2>Belge önizlemesi</h2></div>{resultInvoice && <span className="ready"><i /> Hazır</span>}</div>
         <div className={resultInvoice ? 'preview-card has-document' : 'preview-card'}>{resultInvoice ? <div className="invoice-content" ref={(element) => { this.previewRef = element; }} dangerouslySetInnerHTML={{ __html: resultInvoice }} /> : <div className="empty-preview"><div className="empty-icon">▤</div><h3>Önizlemeniz burada görünecek</h3><p>Belgenizi yükleyip “Belgeyi görüntüle” düğmesine tıklayın.</p></div>}</div>
       </section>
-      <footer><a className="footer-owner" href="https://dievplc.com" target="_blank" rel="noopener noreferrer">dievplc.com · Sabahattin Akal</a><span>Yerel işlem · Güvenli görüntüleme</span></footer>
+      <footer><span>© 2025 — Tüm hakları saklıdır • <a className="footer-owner" href="https://dievplc.com/" target="_blank" rel="noopener noreferrer">Sabahattin Akal</a> tarafından geliştirilmiştir.</span><span>Yerel işlem · Güvenli görüntüleme</span></footer>
     </main>;
   }
 }
